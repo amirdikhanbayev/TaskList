@@ -3,12 +3,9 @@ package com.example.demo.Controller;
 import com.example.demo.Repository.UserService;
 import com.example.demo.model.User;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.websocket.Decoder;
-import jakarta.websocket.Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Optional;
