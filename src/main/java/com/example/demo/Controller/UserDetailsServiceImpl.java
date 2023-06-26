@@ -1,6 +1,7 @@
-package com.example.demo.Repository;
+package com.example.demo.Controller;
+
+import com.example.demo.Repository.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
