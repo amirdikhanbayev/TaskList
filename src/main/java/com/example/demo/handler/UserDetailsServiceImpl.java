@@ -1,4 +1,4 @@
-package com.example.demo.Controller;
+package com.example.demo.handler;
 
 import com.example.demo.Repository.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +17,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         User user = (User) userService.findByLogin(login).orElseThrow(() -> new UsernameNotFoundException("user not found"));
-        return new org.springframework.security.core.userdetails.User(
-                user.getUsername(),
-                user.getPassword(),
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
                 Collections.singletonList(new SimpleGrantedAuthority("USER")));
     }
 }

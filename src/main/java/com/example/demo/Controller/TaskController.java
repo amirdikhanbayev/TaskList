@@ -4,7 +4,6 @@ import com.example.demo.Repository.TaskRepository;
 import com.example.demo.model.Task;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,9 +43,8 @@ public class TaskController {
     }
 
     @DeleteMapping("/deleteTask")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
+    public void delete(@PathVariable Long id) {
         taskRepository.deleteById(id);
-        return ResponseEntity.ok().build();
     }
 
     @PatchMapping("/{id}:mark-as-done")
