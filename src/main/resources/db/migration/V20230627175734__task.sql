@@ -1,0 +1,1 @@
+ALTER TABLE task add user_id BIGSERIAL;
