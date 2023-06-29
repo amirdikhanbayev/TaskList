@@ -28,7 +28,7 @@ public class UserController {
 
     @GetMapping("/get")
     public List<User> getAll() {
-        return userRepository.findAll();
+        return userService.findAll();
     }
 
     @GetMapping("/login/{login}")

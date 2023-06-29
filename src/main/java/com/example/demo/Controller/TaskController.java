@@ -2,6 +2,8 @@ package com.example.demo.Controller;
 
 import com.example.demo.Repository.TaskRepository;
 import com.example.demo.model.Task;
+import com.example.demo.service.TaskService;
+import com.example.demo.service.UserService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +16,12 @@ import java.util.Optional;
 public class TaskController {
     @Autowired
     private TaskRepository taskRepository;
+
+    @Autowired
+    private TaskService taskService;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/create")
     public Task create(@RequestBody Task task) {
@@ -62,6 +70,11 @@ public class TaskController {
     @PatchMapping("/tasks/{id}:mark-as-false")
     public void patchMethod2(@PathVariable Long id) {
         taskRepository.MakeAsFalse(id);
+    }
+
+    @GetMapping("/my")
+    public List<Task> getMyTasks(){
+        return taskService.getCurrentUserTasks();
     }
 
 }
