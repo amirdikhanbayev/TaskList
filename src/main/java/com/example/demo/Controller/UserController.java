@@ -33,7 +33,7 @@ public class UserController {
 
     @GetMapping("/login/{login}")
     public User FindByLogin(@PathVariable String login) {
-        return (User) userService.findByLogin(login).orElseThrow(() -> new EntityNotFoundException());
+        return userService.findByLogin(login).orElseThrow(() -> new EntityNotFoundException());
     }
 
     @DeleteMapping("/delete/{id}")

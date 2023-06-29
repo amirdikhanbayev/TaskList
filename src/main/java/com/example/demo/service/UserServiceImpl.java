@@ -31,23 +31,23 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<Object> findByLogin(String login) {
-        return Optional.empty();
+    public Optional<User> findByLogin(String login) {
+        return userRepository.findByLogin(login);
     }
 
     @Override
     public void deleteById(Long id) {
-
+        userRepository.deleteById(id);
     }
 
     @Override
     public Optional<User> findById(long id) {
-        return Optional.empty();
+        return userRepository.findById(id);
     }
 
     @Override
     public User save(User old1) {
-        return null;
+        return userRepository.save(old1);
     }
 
     @Override

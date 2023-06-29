@@ -12,7 +12,7 @@ public interface UserService {
 
     List<User> findAll();
 
-    Optional<Object> findByLogin(String login);
+    Optional<User> findByLogin(String login);
 
     void deleteById(Long id);
 
