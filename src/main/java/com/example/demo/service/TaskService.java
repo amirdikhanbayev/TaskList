@@ -8,5 +8,4 @@ public interface TaskService {
 
     List<Task> getCurrentUserTasks();
 
-
 }

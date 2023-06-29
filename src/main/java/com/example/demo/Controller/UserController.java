@@ -33,22 +33,22 @@ public class UserController {
 
     @GetMapping("/login/{login}")
     public User FindByLogin(@PathVariable String login) {
-        return (User) userRepository.findByLogin(login).orElseThrow(() -> new EntityNotFoundException());
+        return (User) userService.findByLogin(login).orElseThrow(() -> new EntityNotFoundException());
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        userRepository.deleteById(id);
+        userService.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping("/put")
     public User patchPassword(@RequestBody User user) throws EntityNotFoundException {
-        User old1 = userRepository.findById(user.getId()).orElse(new User());
+        User old1 = userService.findById(user.getId()).orElse(new User());
         old1.setId(user.getId());
         Optional.ofNullable(user.getLogin()).ifPresent(old1::setLogin);
         Optional.ofNullable(user.getPassword()).ifPresent(old1::setPassword);
-        return userRepository.save(old1);
+        return userService.save(old1);
     }
 
     @GetMapping("/me")

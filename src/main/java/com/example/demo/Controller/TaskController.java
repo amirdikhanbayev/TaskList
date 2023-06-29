@@ -25,6 +25,7 @@ public class TaskController {
 
     @PostMapping("/create")
     public Task create(@RequestBody Task task) {
+        task.setUserId(userService.getCurrentUser().getId());
         return taskRepository.save(task);
     }
 
@@ -50,7 +51,7 @@ public class TaskController {
         return taskRepository.save(old);
     }
 
-    @DeleteMapping("/deleteTask")
+    @DeleteMapping("/deleteTask/{id}")
     public void delete(@PathVariable Long id) {
         taskRepository.deleteById(id);
     }
